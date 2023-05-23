@@ -11,7 +11,6 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 60px 70px;
   background-color: #f0f0f0;
 
   z-index: 1;
@@ -20,59 +19,59 @@ header {
     color: $mainColor;
     font-size: 68px;
     line-height: 1;
-    padding: 30px 0;
-    margin-bottom: 100px;
+    padding: 90px 70px;
   }
 
-  p {
-    padding-top: 40px;
-    span {
-      color: $mainColor;
-      display: block;
-
-      &:first-child {
-        width: 70%;
-        font-size: 24px;
-      }
-      &:last-child {
-        text-align: justify;
-        font-size: 15px;
-      }
-      font-weight: 600;
-      margin-bottom: 25px;
+  .wrapper {
+    padding: 50px 70px;
+    .inner {
       width: 80%;
-    }
-  }
+      p {
+        span {
+          color: $mainColor;
+          display: block;
 
-  div {
-    width: 80%;
-    nav {
-      margin-bottom: 20px;
-      ul {
-        li {
-          display: inline-block;
-          margin-right: 8px;
-          margin-bottom: 8px;
-          a {
-            font-weight: 600;
-            padding-bottom: 2px;
-            color: #999;
-            font-size: 14px;
-            position: relative;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
-            &:hover,
-            &:focus {
-              color: #333;
+          &:first-child {
+            font-size: 24px;
+          }
+          &:last-child {
+            text-align: justify;
+            font-size: 15px;
+          }
+          font-weight: 600;
+          margin-bottom: 25px;
+        }
+      }
+
+      div {
+        nav {
+          margin-bottom: 20px;
+          ul {
+            li {
+              display: inline-block;
+              margin-right: 8px;
+              margin-bottom: 8px;
+              a {
+                font-weight: 600;
+                padding-bottom: 2px;
+                color: #999;
+                font-size: 14px;
+                position: relative;
+                box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+                &:hover,
+                &:focus {
+                  color: #333;
+                }
+              }
             }
           }
         }
-      }
-    }
 
-    .desc {
-      width: 80%;
-      font-size: 11px;
-      color: #777;
+        .desc {
+          font-size: 11px;
+          color: #777;
+        }
+      }
     }
   }
 }
@@ -118,7 +117,7 @@ aside {
 
   li {
     width: 100%;
-    padding: 120px 140px;
+    padding: 112px 140px;
     position: relative;
 
     &:before {
@@ -137,11 +136,44 @@ aside {
       margin-top: 120px;
     }
 
-    h2 {
-      color: #fff;
-      font-size: 52px;
-      font-weight: bold;
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
       margin-bottom: 30px;
+
+      h2 {
+        color: #fff;
+        font-size: 54px;
+        font-weight: bold;
+        position: relative;
+        word-spacing: -8;
+
+        &:hover a {
+          opacity: 0.9;
+          transition-duration: 0ms;
+        }
+        a {
+          position: absolute;
+          top: 0;
+          left: -45px;
+          opacity: 0;
+          color: $redText;
+          transform: translateZ(0);
+          transition: opacity 0.45s;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+
+      p {
+        color: #fff;
+        font-weight: bold;
+        letter-spacing: 1;
+        margin-bottom: 4px;
+      }
     }
 
     .videoBox {
