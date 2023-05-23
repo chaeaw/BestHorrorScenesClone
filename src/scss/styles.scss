@@ -1,0 +1,76 @@
+@import "_reset";
+@import "_variables";
+
+body {
+  background-color: $mainColor;
+}
+
+header {
+  width: 33%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 60px 70px;
+  background-color: #f0f0f0;
+
+  h1 {
+    color: $mainColor;
+    font-size: 68px;
+    line-height: 1;
+    padding: 30px 0;
+    margin-bottom: 100px;
+  }
+
+  p {
+    padding-top: 40px;
+    span {
+      color: $mainColor;
+      display: block;
+
+      &:first-child {
+        width: 70%;
+        font-size: 24px;
+      }
+      &:last-child {
+        text-align: justify;
+        font-size: 15px;
+      }
+      font-weight: 600;
+      margin-bottom: 25px;
+      width: 80%;
+    }
+  }
+
+  div {
+    width: 80%;
+    nav {
+      margin-bottom: 20px;
+      ul {
+        li {
+          display: inline-block;
+          margin-right: 8px;
+          margin-bottom: 8px;
+          a {
+            font-weight: 600;
+            padding-bottom: 2px;
+            color: #999;
+            font-size: 14px;
+            position: relative;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+            &:hover,
+            &:focus {
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+
+    .desc {
+      width: 80%;
+      font-size: 11px;
+      color: #777;
+    }
+  }
+}
