@@ -12,3 +12,10 @@ a {
 li {
   list-style: none;
 }
+
+button {
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+}
