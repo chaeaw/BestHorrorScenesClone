@@ -1,7 +1,7 @@
 @import "_variables";
 
 @mixin tabletL {
-  @media (max-width: $tabletL) {
+  @media (min-width: $tabletM) and (max-width: $tabletL) {
     @content;
   }
 }
