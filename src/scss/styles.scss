@@ -1,5 +1,6 @@
 @import "_reset";
 @import "_variables";
+@import "_mixins";
 
 body {
   background-color: $mainColor;
@@ -15,17 +16,57 @@ header {
 
   z-index: 1;
 
+  @include mobileL {
+    position: relative;
+    width: 100%;
+    max-height: 790px;
+  }
+
+  @include tabletM {
+    width: 420px;
+  }
+
+  @include tabletL {
+    width: 600px;
+  }
+
   h1 {
     color: $mainColor;
     font-size: 68px;
     line-height: 1;
     padding: 90px 70px;
+
+    @include mobileM {
+      font-size: 52px;
+    }
+
+    @include mobileL {
+      padding-bottom: 20px;
+    }
+
+    @include tabletM {
+      font-size: 46px;
+      padding: 90px 70px;
+    }
   }
 
   .wrapper {
     padding: 50px 70px;
+
+    @include tabletM {
+      padding: 50px 70px;
+    }
     .inner {
       width: 80%;
+
+      @include mobileL {
+        width: 100%;
+      }
+
+      @include tabletM {
+        width: 100%;
+      }
+
       p {
         span {
           color: $mainColor;
@@ -81,7 +122,7 @@ aside {
   background-color: rgba(231, 79, 69, 0.9);
   top: 0;
   right: 0;
-  width: 67%;
+  width: calc(100% - 33%);
   height: 140px;
   display: flex;
   justify-content: center;
@@ -90,6 +131,20 @@ aside {
   border-bottom: 1px solid rgba(105, 37, 32, 0.3);
 
   z-index: 1;
+
+  @include mobileL {
+    position: relative;
+    width: 100%;
+    height: 100px;
+  }
+
+  @include tabletM {
+    width: calc(100% - 420px);
+  }
+
+  @include tabletL {
+    width: calc(100% - 600px);
+  }
 
   .sort {
     font-size: 18px;
@@ -110,15 +165,44 @@ aside {
 }
 
 .contents {
-  width: 67%;
+  width: calc(100% - 33%);
   position: absolute;
   top: 0;
   right: 0;
+
+  @include mobileL {
+    width: 100%;
+    position: relative;
+  }
+
+  @include tabletM {
+    width: calc(100% - 420px);
+  }
+
+  @include tabletL {
+    width: calc(100% - 600px);
+  }
 
   li {
     width: 100%;
     padding: 112px 140px;
     position: relative;
+
+    @include mobileL {
+      padding: 60px 70px;
+
+      &:first-child {
+        margin-top: 0 !important;
+      }
+    }
+
+    @include tabletM {
+      padding: 112px 70px;
+    }
+
+    @include tabletL {
+      padding: 112px 90px;
+    }
 
     &:before {
       content: "";
@@ -142,6 +226,18 @@ aside {
       align-items: flex-end;
       margin-bottom: 30px;
 
+      @include mobileL {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
+      @include tabletM {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
       h2 {
         color: #fff;
         font-size: 54px;
@@ -149,10 +245,27 @@ aside {
         position: relative;
         word-spacing: -8;
 
+        @include mobileL {
+          word-spacing: 0;
+          font-size: 32px;
+          margin-bottom: 8px;
+        }
+
+        @include tabletM {
+          word-spacing: 0;
+          font-size: 36px;
+          margin-bottom: 8px;
+        }
+
+        @include tabletL {
+          font-size: 48px;
+        }
+
         &:hover a {
           opacity: 0.9;
           transition-duration: 0ms;
         }
+
         a {
           position: absolute;
           top: 0;
@@ -161,6 +274,14 @@ aside {
           color: $redText;
           transform: translateZ(0);
           transition: opacity 0.45s;
+
+          @include mobileL {
+            left: -30px;
+          }
+
+          @include tabletM {
+            left: -30px;
+          }
 
           &:hover {
             opacity: 1;
@@ -173,6 +294,11 @@ aside {
         font-weight: bold;
         letter-spacing: 1;
         margin-bottom: 4px;
+        text-align: right;
+
+        @include mobileL {
+          font-size: 12px;
+        }
       }
     }
 
@@ -188,14 +314,50 @@ aside {
       display: flex;
       justify-content: flex-end;
 
+      @include mobileL {
+        justify-content: center;
+      }
+
+      @include tabletM {
+        justify-content: center;
+      }
+
+      @include tabletL {
+        justify-content: center;
+      }
+
       .thoughtWrap {
         flex-basis: 50%;
+
+        @include mobileL {
+          flex-basis: 100%;
+        }
+
+        @include tabletM {
+          flex-basis: 100%;
+        }
+
+        @include tabletL {
+          flex-basis: 100%;
+        }
 
         p {
           color: #fff;
           font-size: 18px;
           font-weight: bold;
           line-height: 1.6;
+
+          @include mobileL {
+            font-size: 14px;
+          }
+
+          @include tabletM {
+            font-size: 14px;
+          }
+
+          @include tabletL {
+            font-size: 14px;
+          }
         }
 
         .thoughtFooter {
@@ -212,6 +374,18 @@ aside {
             font-size: 18px;
             font-weight: bold;
             display: inline-block;
+
+            @include mobileL {
+              font-size: 14px;
+            }
+
+            @include tabletM {
+              font-size: 14px;
+            }
+
+            @include tabletL {
+              font-size: 14px;
+            }
           }
         }
       }
@@ -225,12 +399,36 @@ aside {
       font-weight: bold;
       font-size: 18px;
 
+      @include mobileL {
+        font-size: 14px;
+      }
+
+      @include tabletM {
+        font-size: 14px;
+      }
+
+      @include tabletL {
+        font-size: 14px;
+      }
+
       button {
         color: $redText;
         font-weight: bold;
         font-size: 18px;
         position: relative;
         padding: 2px;
+
+        @include mobileL {
+          font-size: 14px;
+        }
+
+        @include tabletM {
+          font-size: 14px;
+        }
+
+        @include tabletL {
+          font-size: 14px;
+        }
 
         &::before {
           content: "";

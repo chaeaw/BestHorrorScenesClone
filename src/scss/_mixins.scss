@@ -1,1 +1,25 @@
+@import "_variables";
 
+@mixin tabletL {
+  @media (max-width: $tabletL) {
+    @content;
+  }
+}
+
+@mixin tabletM {
+  @media (min-width: $mobileL) and (max-width: $tabletM) {
+    @content;
+  }
+}
+
+@mixin mobileL {
+  @media (max-width: $mobileL) {
+    @content;
+  }
+}
+
+@mixin mobileM {
+  @media (max-width: $mobileM) {
+    @content;
+  }
+}
