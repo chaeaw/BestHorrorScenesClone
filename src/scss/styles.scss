@@ -119,7 +119,7 @@ header {
 
 aside {
   position: fixed;
-  background-color: rgba(231, 79, 69, 0.9);
+  background-color: rgba(27, 118, 208, 0.9);
   top: 0;
   right: 0;
   width: calc(100% - 33%);
@@ -153,8 +153,8 @@ aside {
     button {
       font-size: 18px;
       font-weight: bold;
-      color: $redText;
-      box-shadow: 0 1px 0 $redText;
+      color: $darkText;
+      box-shadow: 0 1px 0 $darkText;
       &:hover,
       &:focus {
         color: #fff;
@@ -272,7 +272,7 @@ aside {
           top: 0;
           left: -45px;
           opacity: 0;
-          color: $redText;
+          color: $darkText;
           transform: translateZ(0);
           transition: opacity 0.45s;
 
@@ -382,7 +382,7 @@ aside {
             color: #fff;
           }
           .rating {
-            color: $redText;
+            color: $darkText;
             font-size: 18px;
             font-weight: bold;
             display: inline-block;
@@ -407,7 +407,7 @@ aside {
       display: flex;
       justify-content: space-between;
       margin-top: 48px;
-      color: $redText;
+      color: $darkText;
       font-weight: bold;
       font-size: 18px;
 
@@ -424,7 +424,7 @@ aside {
       }
 
       button {
-        color: $redText;
+        color: $darkText;
         font-weight: bold;
         font-size: 18px;
         position: relative;
@@ -445,7 +445,7 @@ aside {
         &::before {
           content: "";
           height: 2px;
-          background-color: $redText;
+          background-color: $darkText;
           width: 100%;
           position: absolute;
           bottom: -10px;
