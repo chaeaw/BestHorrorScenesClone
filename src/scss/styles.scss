@@ -111,6 +111,13 @@ header {
         .desc {
           font-size: 11px;
           color: #777;
+
+          .link_original {
+            text-decoration: underline;
+            &:hover {
+              color: #333;
+            }
+          }
         }
       }
     }
@@ -353,7 +360,10 @@ aside {
           flex-basis: 100%;
         }
 
-        p {
+        .thought-con {
+          display: flex;
+          justify-content: flex-end;
+          // text-align: justify;
           color: #fff;
           font-size: 18px;
           font-weight: bold;
@@ -372,32 +382,24 @@ aside {
           }
         }
 
-        .thoughtFooter {
+        .rating {
           display: flex;
-          justify-content: space-between;
-          align-items: center;
+          justify-content: flex-end;
+          color: $darkText;
+          font-size: 18px;
+          font-weight: bold;
           margin-top: 20px;
 
-          p {
-            color: #fff;
+          @include mobileL {
+            font-size: 14px;
           }
-          .rating {
-            color: $darkText;
-            font-size: 18px;
-            font-weight: bold;
-            display: inline-block;
 
-            @include mobileL {
-              font-size: 14px;
-            }
+          @include tabletM {
+            font-size: 14px;
+          }
 
-            @include tabletM {
-              font-size: 14px;
-            }
-
-            @include tabletL {
-              font-size: 14px;
-            }
+          @include tabletL {
+            font-size: 14px;
           }
         }
       }
