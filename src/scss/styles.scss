@@ -173,10 +173,10 @@ aside {
 
 .contents {
   width: calc(100% - 33%);
+  height: 100vh;
   position: absolute;
   top: 0;
   right: 0;
-
   @include mobileL {
     width: 100%;
     position: relative;

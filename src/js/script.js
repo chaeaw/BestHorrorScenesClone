@@ -6,6 +6,7 @@
 
   const API_URL = "http://localhost:3000/videoList";
 
+  const $contentWrap = get(".contents");
   const $videoList = get(".contents-list");
 
   const limit = 5; // 보여질 영상 아이템 갯수
@@ -14,7 +15,6 @@
   let total = 5;
 
   const showVideos = (videos) => {
-    $videoList.innerHTML = "";
     videos.forEach((item) => {
       const { link, title, artist, thought, rating } = item;
       const $videoItem = document.createElement("li");
@@ -67,11 +67,18 @@
   };
 
   const onScroll = () => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
+    const scrollY = window.scrollY;
+    const clientHeight = $contentWrap.clientHeight;
+    const scrollHeight = $contentWrap.scrollHeight;
     if (total === end) {
       window.removeEventListener("scroll", onScroll);
       return;
+    }
+
+    if (scrollY + clientHeight >= scrollHeight) {
+      currentPage++;
+      total += 5;
+      loadVideo();
     }
   };
 
