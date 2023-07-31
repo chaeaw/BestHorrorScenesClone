@@ -156,6 +156,8 @@ aside {
   .sort {
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
+    line-height: 1.6;
 
     button {
       font-size: 18px;
@@ -188,6 +190,13 @@ aside {
 
   @include tabletL {
     width: calc(100% - 600px);
+  }
+
+  .contents-group[data-open="off"] {
+    display: none;
+  }
+  .contents-group[data-open="on"] {
+    display: display;
   }
 
   li {
@@ -405,6 +414,7 @@ aside {
       }
     }
 
+    /*
     .comments {
       display: flex;
       justify-content: space-between;
@@ -456,5 +466,7 @@ aside {
         }
       }
     }
+
+    */
   }
 }

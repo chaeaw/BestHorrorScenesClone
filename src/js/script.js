@@ -46,6 +46,15 @@
     });
   };
 
+  let is_action = true;
+  const startServer = () => {
+    // server가 기동되었을때만 innerHTML을 비워주고싶어서 -> 포폴에서는 서버 기동을 따로 못해주므로
+    if (is_action === true) {
+      $videoList.innerHTML = "";
+    }
+    is_action = false;
+  };
+
   const getVideos = async () => {
     const response = await fetch(
       `${API_URL}?_page=${currentPage}&_limit=${limit}`
@@ -54,6 +63,7 @@
     if (!response.ok) {
       return new Error("에러가 발생했습니다.");
     }
+    startServer();
     return await response.json();
   };
 
@@ -62,11 +72,14 @@
       const response = await getVideos();
       showVideos(response);
     } catch (error) {
+      console.log(
+        "json-server for infinite scroll isn't watching DB now. But I make infinite Scroll with dataset. check this please."
+      );
       console.log(error);
     }
   };
 
-  const onScroll = () => {
+  const onScrollInServer = () => {
     const scrollY = window.scrollY;
     const clientHeight = $contentWrap.clientHeight;
     const scrollHeight = $contentWrap.scrollHeight;
@@ -82,8 +95,26 @@
     }
   };
 
+  // json-server 사용시
   window.addEventListener("DOMContentLoaded", () => {
     loadVideo();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScrollInServer);
   });
+
+  const onScroll = () => {
+    const scrollY = window.scrollY;
+    const clientHeight = $contentWrap.clientHeight;
+    const scrollHeight = $contentWrap.scrollHeight;
+
+    const videoGroupTopOff = get(`.contents-group[data-open="off"]`);
+    if (scrollY + clientHeight >= scrollHeight) {
+      videoGroupTopOff.dataset.open = "on";
+    }
+
+    if (!videoGroupTopOff) {
+      window.removeEventListener("scroll", onScroll);
+    }
+  };
+
+  window.addEventListener("scroll", onScroll);
 })();
