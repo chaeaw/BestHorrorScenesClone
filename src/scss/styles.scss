@@ -4,6 +4,27 @@
 
 body {
   background-color: $mainColor;
+  &::-webkit-scrollbar {
+    height: calc(100% - 140px);
+    width: 12px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $darkText;
+    border-radius: 8px;
+    border: 2px solid $mainColor;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $mainColor;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-button:vertical:start:decrement {
+    display: block;
+    height: 140px;
+    background-color: rgba(27, 118, 208, 0.9);
+    border-bottom: 1px solid rgba(105, 37, 32, 0.3);
+  }
 }
 
 header {
@@ -179,6 +200,7 @@ aside {
   position: absolute;
   top: 0;
   right: 0;
+
   @include mobileL {
     width: 100%;
     position: relative;
