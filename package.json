@@ -2,7 +2,8 @@
   "name": "scss-boilerplate",
   "version": "1.0.0",
   "scripts": {
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "start": "json-server --watch db.json"
   },
   "type": "module",
   "license": "MIT",
