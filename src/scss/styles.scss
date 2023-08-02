@@ -4,9 +4,13 @@
 
 body {
   background-color: $mainColor;
+
   &::-webkit-scrollbar {
     height: calc(100% - 140px);
     width: 12px;
+    @include mobileL {
+      display: none;
+    }
   }
   &::-webkit-scrollbar-thumb {
     background-color: $darkText;
@@ -413,7 +417,7 @@ aside {
           }
         }
 
-        .rating {
+        .recommend {
           display: flex;
           justify-content: flex-end;
           color: $darkText;
